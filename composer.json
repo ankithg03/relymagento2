@@ -4,9 +4,18 @@
     "type": "magento2-module",
     "version": "1.0.0",
     "license": [
-    "OSL-3.0",
-    "AFL-3.0"
+    	"OSL-3.0",
+    	"AFL-3.0"
     ],
+    "authors": [
+      {
+        "name": "Codilar",
+        "email": "hello@codilar.com",
+        "homepage": "https://www.codilar.com",
+        "role": "Technical Support"
+      }
+    ],
+    "minimum-stability": "dev",
     "repositories": [
       {
         "type": "composer",
@@ -18,7 +27,9 @@
         "nvanheuverzwijn/monolog-logdna": "^2.1"
     },
     "autoload": {
-        "files": [ "registration.php" ],
+        "files": [ 
+	  "registration.php" 
+        ],
         "psr-4": {
             "Rely\\Payment\\": ""
         }
