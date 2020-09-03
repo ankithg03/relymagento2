@@ -1,5 +1,5 @@
 {
-    "name": "rely/magento2-payment-module",
+    "name": "ankith-codilar/relymagento2",
     "description": "Integration of Rely Payment Gateway",
     "require": {
         "php": "~7.1.3||~7.2.0||~7.3.0",
