@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @description Magento Module for Rely Payment
+ * @author   Codilar Team Player <ankith@codilar.com>
+ * @license  Open Source
+ * @link     https://www.codilar.com
+ * @copyright Copyright © 2020 Codilar Technologies Pvt. Ltd.. All rights reserved
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="standard">
+        <route id="rely" frontName="rely">
+            <module name="Rely_Payment" />
+        </route>
+    </router>
+</config>

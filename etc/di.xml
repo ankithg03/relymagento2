@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @description Magento Module for Rely Payment
+ * @author   Codilar Team Player <ankith@codilar.com>
+ * @license  Open Source
+ * @link     https://www.codilar.com
+ * @copyright Copyright © 2020 Codilar Technologies Pvt. Ltd.. All rights reserved
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Rely\Payment\Api\RelyPaymentManagementInterface" type="Rely\Payment\Model\RelyPaymentManagement" />
+    <preference for="Rely\Payment\Api\Data\RelyPaymentDataManagementInterface" type="Rely\Payment\Model\Data\RelyPaymentDataManagement" />
+
+    <type name="Rely\Payment\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Rely\Payment\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">RelyPaymentLogger</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">Rely\Payment\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @description Magento Module for Rely Payment
+ * @author   Codilar Team Player <ankith@codilar.com>
+ * @license  Open Source
+ * @link     https://www.codilar.com
+ * @copyright Copyright © 2020 Codilar Technologies Pvt. Ltd.. All rights reserved
+ *
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="checkout_cart_item_renderers"/>
+    <body>
+        <referenceContainer name="header.container">
+            <block class="Rely\Payment\Block\Marketing\Cart\Promotion" name="checkout.cart.rely.banner.strip" template="Rely_Payment::marketing/cart/banner_strip.phtml" before="header-wrapper" >
+                <block class="Rely\Payment\Block\Marketing\Cart\Promotion" name="checkout.cart.rely.installment.banner_strip.content" as="installment_banner_strip_content" template="Rely_Payment::marketing/cart/installment/banner_strip.phtml"/>
+                <block class="Rely\Payment\Block\Marketing\Cart\Promotion" name="checkout.cart.rely.pay_later.banner_strip.content" as="pay_later_banner_strip_content" template="Rely_Payment::marketing/cart/paylater/banner_strip.phtml"/>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <referenceContainer name="cart.summary" >
+                <block class="Rely\Payment\Block\Marketing\Cart\Promotion" name="checkout.cart.rely.tagline" template="Rely_Payment::marketing/cart/promotion.phtml"  after="checkout.cart.methods.bottom">
+                    <block class="Rely\Payment\Block\Marketing\Cart\Promotion" name="checkout.cart.rely.installment.widget.content" as="installment_display_widget" template="Rely_Payment::marketing/cart/installment/display_widget.phtml"/>
+                    <block class="Rely\Payment\Block\Marketing\Cart\Promotion" name="checkout.cart.rely.pay_later.widget.content" as="pay_later_display_widget" template="Rely_Payment::marketing/cart/paylater/display_widget.phtml"/>
+                </block>
+            </referenceContainer>
+            <block class="Rely\Payment\Block\Marketing\Cart\Promotion" name="checkout.cart.rely.popup" template="Rely_Payment::marketing/cart/popup.phtml"  after="-">
+                <block class="Rely\Payment\Block\Marketing\Cart\Promotion" name="checkout.cart.rely.installment.popup.content" as="installment_popup_content" template="Rely_Payment::marketing/cart/installment/popup_content.phtml"/>
+                <block class="Rely\Payment\Block\Marketing\Cart\Promotion" name="checkout.cart.rely.pay_later.popup.content" as="pay_later_popup_content" template="Rely_Payment::marketing/cart/paylater/popup_content.phtml"/>
+            </block>
+        </referenceContainer>
+
+    </body>
+</page>

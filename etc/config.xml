@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ *
+ * @description Magento Module for Rely Payment
+ * @author   Codilar Team Player <ankith@codilar.com>
+ * @license  Open Source
+ * @link     https://www.codilar.com
+ * @copyright Copyright © 2020 Codilar Technologies Pvt. Ltd.. All rights reserved
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <relypayment>
+                <active>1</active>
+                <model>Rely\Payment\Model\Gateways\RelyPayment</model>
+                <order_status>rely_payment_pending</order_status>
+                <approved_order_status>rely_payment_approved</approved_order_status>
+                <declined_order_status>rely_payment_declined</declined_order_status>
+                <canceled_order_status>rely_payment_canceled</canceled_order_status>
+                <title>Rely - Split your Payments</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </relypayment>
+        </payment>
+    </default>
+</config>

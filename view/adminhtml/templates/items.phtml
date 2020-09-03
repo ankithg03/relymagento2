@@ -1,0 +1,165 @@
+<?php
+/**
+ *
+ * @description Magento Module for Rely Payment
+ * @author   Codilar Team Player <ankith@codilar.com>
+ * @license  Open Source
+ * @link     https://www.codilar.com
+ * @copyright Copyright © 2020 Codilar Technologies Pvt. Ltd.. All rights reserved
+ *
+ */
+
+/* @var \Magento\Sales\Block\Adminhtml\Order\Creditmemo\Create\Items $block */
+?>
+<?php
+/** @var Magento\Sales\ViewModel\CreditMemo\Create\UpdateTotalsButton $viewModel */
+$viewModel = $block->getData('viewModel');
+$_items = $block->getCreditmemo()->getAllItems();
+?>
+
+<section class="admin__page-section">
+    <div class="admin__page-section-title">
+        <span class="title"><?= $block->escapeHtml(__('Items to Refund')) ?></span>
+    </div>
+
+    <?php if (count($_items)): ?>
+        <div class="admin__table-wrapper">
+            <table class="data-table admin__table-primary order-creditmemo-tables">
+                <thead>
+                <tr class="headings">
+                    <th class="col-product"><span><?= $block->escapeHtml(__('Product')) ?></span></th>
+                    <th class="col-price"><span><?= $block->escapeHtml(__('Price')) ?></span></th>
+                    <th class="col-ordered-qty"><span><?= $block->escapeHtml(__('Qty')) ?></span></th>
+                    <th class="col-subtotal"><span><?= $block->escapeHtml(__('Subtotal')) ?></span></th>
+                    <th class="col-tax-amount"><span><?= $block->escapeHtml(__('Tax Amount')) ?></span></th>
+                    <th class="col-discont"><span><?= $block->escapeHtml(__('Discount Amount')) ?></span></th>
+                    <th class="col-total last"><span><?= $block->escapeHtml(__('Row Total')) ?></span></th>
+                </tr>
+                </thead>
+                <?php $i = 0; foreach ($_items as $_item): ?>
+                    <?php if ($_item->getOrderItem()->getParentItem()):
+                        continue;
+                    else:
+                        $i++;
+                    endif; ?>
+                    <tbody class="<?= /* @noEscape */ $i%2 ? 'even' : 'odd' ?>">
+                    <?= $block->getItemHtml($_item) ?>
+                    <?= $block->getItemExtraInfoHtml($_item->getOrderItem()) ?>
+                    </tbody>
+                <?php endforeach; ?>
+            </table>
+        </div>
+    <?php else: ?>
+        <div class="no-items">
+            <?= $block->escapeHtml(__('No Items To Refund')) ?>
+        </div>
+    <?php endif; ?>
+</section>
+
+<?php $orderTotalBar = $block->getChildHtml('order_totalbar'); ?>
+
+<?php if (!empty($orderTotalBar)):?>
+    <section class="fieldset-wrapper">
+        <?= /* @noEscape */ $orderTotalBar ?>
+    </section>
+<?php endif; ?>
+<form id="edit_form" method="post" action="<?= $block->escapeHtml($block->getUrl('rely/refund/save')) ?>">
+    <?= $block->getBlockHtml('formkey') ?>
+    <section class="admin__page-section">
+
+        <input type="hidden"
+               name="order_id"
+               id="refund_rely_order"
+               value="<?= $block->escapeHtmlAttr($block->getRequest()->getParam('order_id'))?>"
+        />
+        <div class="admin__page-section-title">
+            <span class="title"><?= $block->escapeHtml(__('Order Total')) ?></span>
+        </div>
+        <div class="admin__page-section-content">
+            <div class="admin__page-section-item order-comments-history">
+                <div class="admin__page-section-item-title">
+                    <span class="title"><?= $block->escapeHtml(__('Rely Order Refund')) ?></span>
+                </div>
+                <div id="history_form" class="admin__fieldset-wrapper-content">
+                    <div class="admin__field">
+                        <label class="normal admin__field-label"
+                               for="refund_rely_order_total">
+                            <span><?= $block->escapeHtml(__('Total Paid')) ?></span></label>
+                        <div class="admin__field-control">
+                           <?= $block->escapeHtml(__($block->displayPriceAttribute('total_paid'))) ?>
+                        </div>
+                    </div>
+                    <div class="admin__field">
+                        <label class="normal admin__field-label"
+                               for="refund_rely_order">
+                            <span><?= $block->escapeHtml(__('Amount*')) ?></span></label>
+                        <div class="admin__field-control">
+                            <input id="rely_order_refund_amount"
+                                      class="admin__control-textarea"
+                                      name="rely_order[refund_amount]"
+                                      type="number"
+                                      rows="3"
+                                      cols="5"
+                                      data-validate="{required:true}"
+                            >
+                            </input>
+                            <span id="rely_order_refund_amount_validate" style="color: red;"></span>
+                        </div>
+                    </div>
+                    <div class="admin__field">
+                        <label class="normal admin__field-label"
+                               for="refund_rely_order">
+                            <span><?= $block->escapeHtml(__('Reason')) ?></span></label>
+                        <div class="admin__field-control">
+                            <textarea id="rely_order_refund_reason"
+                                      class="admin__control-textarea"
+                                      name="rely_order[refund_reason]"
+                                      rows="3"
+                                      cols="5"></textarea>
+                        </div>
+                    </div>
+                    <div class="admin__field">
+                        <div class="admin__field-control">
+                          <button class="submit submit-button rely-order-refund">
+                              <?= $block->escapeHtml(__('Refund Rely Order')); ?>
+                          </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+<script>
+    require(['jquery'], function($){
+        let url = "<?=$block->escapeHtml($block->getUrl('rely/refund/submit'));?>";
+        let submitButtons = $('.submit-button.rely-order-refund');
+        $( "#rely_order_refund_amount" ).keyup(function() {
+            let totalPrice = <?= $block->escapeHtml($block->getOrder()->getTotalPaid())?>;
+
+            if($('#rely_order_refund_amount_validate').text() !== ""){
+                $('#rely_order_refund_amount_validate').text("");
+            }
+            let amount = $( "#rely_order_refund_amount").val();
+            if(amount < 0) {
+                $( "#rely_order_refund_amount").val(0);
+                $('#rely_order_refund_amount_validate').text("Please Enter a Valid Amount");
+            }
+            if( amount > totalPrice) {
+                // $( "#rely_order_refund_amount").val(totalPrice);
+                $('#rely_order_refund_amount_validate').text("Please Enter a Valid Amount");
+            }
+        });
+        submitButtons.click('click',(event)=>{
+            let totalPrice = <?=$block->escapeHtml($block->getOrder()->getTotalPaid())?>;
+            let refundPrice =  $('#rely_order_refund_amount').val();
+
+            if(totalPrice < refundPrice || refundPrice === "" || refundPrice <= "0") {
+                $('#rely_order_refund_amount_validate').text('Invalid Refund Amount');
+                event.preventDefault();
+            }
+        });
+
+    });
+</script>

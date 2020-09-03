@@ -1,0 +1,466 @@
+.rely-payment.payment-method{
+    .payment-method-title{
+        display: flex;
+        input[type="radio"] {
+            margin: auto 5px auto 0;
+        }
+
+        label.label {
+            display: flex;
+            margin: auto auto auto 3px;
+        }
+
+        span#logo {
+            width: 105px;
+            margin-right: 28px;
+            display: flex;
+        }
+
+        .checkout-payment-method .payment-method-title {
+            display: flex;
+        }
+
+        span#logo img {
+            border-radius: 3px;
+            box-shadow: 0 0 3px #cde5ff;
+            padding: 10px;
+        }
+        #logo span {
+            margin: auto;
+            vertical-align: middle;
+            display: flex;
+            margin-top: 11px;
+        }
+
+        .label span {
+            margin: auto;
+        }
+    }
+    .payment-method-billing-address {
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        box-shadow:  0 0 3px #cde5ff;
+        .billing-address-details {
+            width: 600px;
+            word-wrap: break-word;
+        }
+    }
+    .primary{
+        width: 100%;
+        button.action.primary.checkout {
+            width: 100%;
+        }
+
+        button.action.primary.checkout {
+            background: #5500ff;
+            width: 100%;
+            transition:.5s all ease-in;
+            border: 0;
+        }
+        button.action.primary.checkout:hover {
+            background: #303ff9;
+            transition:.5s all ease-in;
+        }
+    }
+    .rely-overlay-container{
+        display: none;
+    }
+    .rely-overlay-container.active {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        flex-direction: column;
+        right: 0;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(180deg, #1313137d,#3a3a3a);
+        cursor: pointer;
+        display: flex;
+        .rely-overlay-bg {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            flex-direction: column;
+            right: 0;
+            left: 0;
+            z-index: 500;
+            background: linear-gradient(180deg, #6b6868, #3A3A3C);
+            opacity: 0.8;
+        }
+        .rely-overlay-container-close {
+            position: fixed;
+            right: 7px;
+            top: 7px;
+            font-size: x-large;
+            background: none;
+            color: white;
+            padding: 0 13px 4px 13px;
+            align-items: center;
+            border-radius: 37px;
+            display: flex;
+            z-index: 1001;
+            transition: 1s all;
+            vertical-align: middle;
+            box-shadow: 0 0 black;
+            text-shadow: 4px 3px 5px black;
+        }
+        .rely-overlay-container-close:hover {
+            transition: 1s all;
+            color: black;
+            text-shadow: none;
+            background: #a9a9a9b8;
+        }
+        .rely-overlay-container {
+            display: flex;
+            width: 100%;
+            z-index: 999;
+            height: 100%;
+            .rely-overlay-content {
+                margin: auto;
+                display: flex;
+                padding: 10px;
+                border-radius: 52px;
+                flex-direction: column;
+                align-items: center;
+                .rely-overlay-logo {
+                    display: flex;
+                    padding: 10px;
+                    border-radius: 38px;
+                    box-shadow: 1px 1px 8px #333333;
+                    background: #ffffff;
+                    width: 206px;
+                    margin-bottom: 41px;
+                }
+                .rely-overlay-text {
+                    display: flex;
+                    margin: auto;
+                    padding: 0 10px;
+                    flex-direction: column;
+                    text-align: center;
+                    color: white;
+                    .rely-overlay-medium-text {
+                        font-size: xx-large;
+                        font-style: initial;
+                        font-weight: 300;
+                        text-shadow: 3px 3px 9px black;
+                    }
+
+                    .rely-overlay-small-text {
+                        font-weight: 400;
+                        font-style: normal;
+                        text-shadow: 3px 3px 9px black;
+                    }
+                }
+            }
+        }
+    }
+    @media only screen and (max-width: 900px) {
+            .payment-method-billing-address {
+                .billing-address-details {
+                    width: 400px;
+                    word-wrap: break-word;
+                }
+            }
+    }
+    @media only screen and (max-width: 600px) {
+            .rely-overlay-content {
+                flex-direction: column;
+
+                .rely-overlay-text {
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+    }
+    @media only screen and (max-width: 400px) {
+            .payment-method-billing-address {
+                .billing-address-details {
+                    width: 300px;
+                    word-wrap: break-word;
+                }
+            }
+        }
+}
+
+//rely-popup
+
+div#rely-popup-modal {
+    position: fixed;
+    right: 50%;
+    left: 50%;
+    bottom: 100%;
+    display: flex;
+    width: 0;
+    height: 0;
+    top: 50%;
+    opacity: 0;
+    transition: .5s all, 2s z-index;
+}
+div#rely-popup-modal.active {
+    top: 0;
+    right: 0;
+    left: 0;
+    border: 0;
+    z-index: 102;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    transition: .5s all, 2s z-index;
+    opacity: 100%;
+}
+
+.rely-popup-model-container {
+    height: 62%;
+    display: flex;
+    width: 40%;
+    z-index: 104;
+    position: relative;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 1px 1px 4px #00000045;
+    margin: auto;
+}
+
+.rely-logo img {
+    width: 155px;
+    margin: 33px auto;
+}
+
+.rely-logo {
+    display: flex;
+}
+.rely-popup-modal-body {
+    display: flex;
+    overflow-y: scroll;
+    height: 100%;
+    box-shadow: 1px 1px 4px #00000045;
+    float: left;
+    border-radius: 18px;
+}
+
+.rely-popup-modal-header {
+    /* display: flex; */
+    position: absolute;
+    right: 0;
+}
+
+.rely-popup-modal-header button.close-button {
+    position: relative;
+    margin-right: 0;
+    margin-top: 0;
+    border-radius: 39px;
+    right: 0;
+    border: 0;
+    transition: .5s all;
+    font-size: x-large;
+    color: #353434;
+    background: none;
+}
+
+.rely-popup-image img {
+    height: 100%;
+    width: 100%;
+}
+
+.rely-popup-content {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+p.rely-popup-content-text {
+    letter-spacing: 1px;
+    display: flex;
+    margin: 35px 50px 44px 7px;
+}
+
+.rely-popup-modal .rely-popup-modal-header button.close-button {
+    display: none;
+}
+
+.rely-popup-modal.active .rely-popup-modal-header button.close-button {
+    display: unset;
+}
+
+.rely-popup-modal.active .rely-popup-modal-header button.close-button:hover {
+    color: #5a5858;
+    transition: .5s all;
+}
+
+.rely-popup-modal-body::-webkit-scrollbar {
+    width: 3px;
+}
+
+.rely-popup-modal-body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.17);
+    border-radius: 10px;
+}
+
+.rely-popup-modal-body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    background: linear-gradient(45deg, #00adff, #38479c);
+}
+div#rely-popup-overlay.active{
+    position: fixed;
+    background: #00000063;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 103;
+    opacity: 1;
+    transition: 1s opacity;
+}
+
+div#rely-popup-overlay {
+    transition: 1s opacity;
+    opacity: 0;
+}
+.overlay-click{
+    opacity: 0;
+    z-index: 103;
+    display: none;
+}
+.strip-widget-title{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+.rely-popup-content-icon{
+    width: 158px;
+    height: 45px;
+}
+svg.rely-popup-content-icon {
+    padding: 0 14px;
+}
+svg.rely-popup-content-icon.heart {
+    padding: 0 19px;
+}
+
+svg.rely-popup-content-icon.cart {
+    padding-left: 7px;
+    padding-right: 0;
+}
+p.rely-popup-content-notice {
+    margin: auto;
+}
+@media only screen and (max-width: 800px) {
+    .rely-popup-modal-body{
+        flex-direction: column;
+    }
+    .rely-popup-model-container {
+        width: 80%;
+    }
+}
+
+//Rely-Banner Strip
+.strip-image img {
+    height: 27px;
+    /* background: #fff; */
+    padding: 10px;
+}
+.container .content{
+    display: flex;
+    margin: auto;
+}
+
+.strip-text {
+    display: flex;
+    flex-direction: row;
+}
+
+span.main-text {
+    display: flex;
+    margin: auto;
+    font-size: medium;
+    font-weight: 600;
+    color: black;
+}
+
+.rely-banner-strip .container {
+    display: flex;
+}
+
+.rely-banner-strip.container {
+    display: flex;
+}
+.strip-image {
+    display: flex;
+}
+
+.rely-banner-strip {
+    cursor: pointer;
+    background: #f9f9f9;
+    font-weight: 700;
+    height: inherit;
+    left: auto;
+    overflow: inherit;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+.strip-text-tagline {
+    display: flex;
+}
+@media only screen and (max-width: 800px) {
+    .strip-image img{
+        padding-left: 0;
+    }
+    .strip-text-tagline {
+        display: flex;
+    }
+    .strip-text {
+        flex-direction: column;
+    }
+}
+
+//display widget
+.strip-title div {
+    margin: auto 0;
+}
+
+.strip-widget {
+    cursor: pointer;
+}
+
+.strip-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.strip-logo {
+    background: white;
+    padding: 10px;
+    display: flex;
+    border-radius: 5px;
+}
+
+.strip-main-heading {
+    margin: auto;
+    font-size: x-large;
+    margin-left: 10px;
+    font-weight: bolder;
+}
+
+.strip-widget-content-text {
+    font-size: small;
+}
+
+.strip-widget-content-text img {
+    width: 91px;
+    vertical-align: middle;
+}
+.strip-logo img {
+    height: 20px;
+}
+.strip-widget-text{
+    margin-right: 10px;
+}
+.strip-widget-content-text .learn-more {
+    text-decoration: underline;
+    margin-left: 4px;
+    font-weight: 800;
+}
+

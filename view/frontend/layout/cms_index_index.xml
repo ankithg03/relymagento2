@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @description Magento Module for Rely Payment
+ * @author   Codilar Team Player <ankith@codilar.com>
+ * @license  Open Source
+ * @link     https://www.codilar.com
+ * @copyright Copyright © 2020 Codilar Technologies Pvt. Ltd.. All rights reserved
+ *
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.container">
+            <block class="Rely\Payment\Block\Marketing\HomePage\Promotion" name="cms.rely.promotion" template="Rely_Payment::marketing/homepage/promotion.phtml" before="header-wrapper" >
+                <block class="Rely\Payment\Block\Marketing\HomePage\Promotion" name="checkout.homepage.rely.installment.banner_strip.content" as="installment_banner_strip_content" template="Rely_Payment::marketing/homepage/installment/banner_strip.phtml"/>
+                <block class="Rely\Payment\Block\Marketing\HomePage\Promotion" name="checkout.homepage.rely.pay_later.banner_strip.content" as="pay_later_banner_strip_content" template="Rely_Payment::marketing/homepage/paylater/banner_strip.phtml"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

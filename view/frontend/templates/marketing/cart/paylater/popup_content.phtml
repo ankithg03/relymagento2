@@ -1,0 +1,27 @@
+<?php
+/**
+ *
+ * @description Magento Module for Rely Payment
+ * @author   Codilar Team Player <ankith@codilar.com>
+ * @license  Open Source
+ * @link     https://www.codilar.com
+ * @copyright Copyright © 2020 Codilar Technologies Pvt. Ltd.. All rights reserved
+ *
+ */
+use Rely\Payment\Block\Marketing\Cart\Promotion; ?>
+<?php
+/**
+ * @var $block Promotion
+ */
+?>
+<div class="rely-logo"><img src="<?=$block->escapeHtml(__($block->getLogo()))?>" alt="rely-logo">
+</div>
+<h3 class="strip-widget-title">
+    <?=$block->escapeHtml(__('Pay later in 4 interest-free installments'))?>
+</h3>
+<?php /**phpcs:ignore*/?><p class="rely-popup-content-text"><svg class="rely-popup-content-icon heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xmlns:v="https://vecta.io/nano"><path d="M474.644 74.27C449.39 45.616 414.358 29.836 376 29.836c-53.948 0-88.103 32.22-107.255 59.25-4.97 7.014-9.196 14.047-12.745 20.665-3.55-6.618-7.775-13.65-12.745-20.665-19.152-27.03-53.307-59.25-107.255-59.25-38.358 0-73.39 15.78-98.645 44.435C13.267 101.605 0 138.213 0 177.35c0 42.603 16.633 82.228 52.345 124.7 31.917 37.96 77.834 77.088 131.005 122.397l62.77 54.003c2.828 2.476 6.354 3.713 9.88 3.713a14.97 14.97 0 0 0 9.88-3.713l.655-.574 62.118-53.43c53.168-45.306 99.085-84.434 131.002-122.395C495.367 259.578 512 219.954 512 177.35c0-39.138-13.267-75.746-37.356-103.08zm-165.45 327.344L256 447.26l-53.196-45.648C98.745 312.94 30 254.358 30 177.35c0-31.83 10.605-61.394 29.862-83.245 19.478-22.1 46.517-34.27 76.138-34.27 41.13 0 67.716 25.338 82.776 46.594 13.51 19.064 20.558 38.282 22.962 45.66a15 15 0 0 0 28.524 0c2.404-7.377 9.453-26.595 22.962-45.66C308.284 85.174 334.87 59.836 376 59.836c29.62 0 56.66 12.17 76.137 34.27C471.395 115.957 482 145.52 482 177.35c0 77.007-68.745 135.588-172.807 224.263z"></path></svg>Quickly create your account with simple easy steps and credit/debit card to activate the account</p>
+<?php /**phpcs:ignore*/?><p class="rely-popup-content-text"><svg class="rely-popup-content-icon cart" xmlns="http://www.w3.org/2000/svg" height="602.333" viewBox="0 0 512 469" preserveAspectRatio="xMidYMid meet" xmlns:v="https://vecta.io/nano"><path d="M431 24.7c-3.7.7-9 5.1-10.5 8.7-.7 1.7-3.1 11.4-5.4 21.6l-20.5 89.5c-1.3 4.4-3.3 12.8-4.6 18.7l-2.4 10.8H48.4l-6.3-28.1-6.8-29.9c-.5-1.7 3.4-1.8 83.4-2.2l83.8-.3 3.5-2.2c1.9-1.2 4.3-3.5 5.3-5.1 2.4-4.2 2.3-12.5-.3-16.6-3.9-6.5 2.1-6.1-103.4-6.1-90.6 0-96.3.1-99.4 1.8C3.7 87.8 1 92.5 1 98.1c0 6.9 43.4 199.4 46.1 204.7 4.3 8.4-10.2 7.7 158.7 8l149.8 2c-.6 1.9-10.6 45.1-10.6 45.8 0 .2-64.7.4-143.7.4H57.5l-4 2.3c-5.3 3-7.7 7.7-7.2 14.3.4 5.6 2.6 9.2 7.2 12.1 2.9 1.7 9.4 1.8 155.7 1.8h152.7l2.8-2.1c1.5-1.1 3.7-3.4 4.8-5.1 1.5-2.1 12.9-50 39.5-165.1L446.4 55h27.3c29.7 0 32.1-.4 36.1-5.5 1.8-2.3 2.2-4.1 2.2-10.2 0-6.8-.2-7.7-2.8-10.3-1.6-1.5-4.6-3.3-6.8-3.9-3.8-1.1-65.8-1.4-71.4-.4zm-52.5 188.5c-.2.7-3.6 15.2-7.5 32.3l-7.6 32.7c-.5 1.7-8.3 1.8-145.9 1.8H72.2l-.7-3.3L57 212h160.9l160.6 1.2zM116 399.1c-9.6 4.3-14.4 11.7-14.4 21.9s4.8 17.6 14.4 21.9c8.4 3.8 17.3 2.3 24.7-4.3 5.7-5 8.3-10.4 8.3-17.6s-2.6-12.6-8.3-17.6c-7.4-6.6-16.3-8.1-24.7-4.3zm175.9.7c-10 5.2-15.1 15.6-12.8 26.2 1.4 6.8 6.2 12.8 12.8 16.2 11.7 6.1 25.6 1.5 31.6-10.5 10.2-20.5-11.5-42.4-31.6-31.9z"></path></svg>Add items to your cart and select.Just pay the 1st installment today</p>
+<?php /**phpcs:ignore*/?><p class="rely-popup-content-text"><svg class="rely-popup-content-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xmlns:v="https://vecta.io/nano"><path d="M452 40h-24V0h-40v40H124V0H84v40H60C26.916 40 0 66.916 0 100v352c0 33.084 26.916 60 60 60h392c33.084 0 60-26.916 60-60V100c0-33.084-26.916-60-60-60zm20 412c0 11.028-8.972 20-20 20H60c-11.028 0-20-8.972-20-20V188h432v264zm0-304H40v-48c0-11.028 8.972-20 20-20h24v40h40V80h264v40h40V80h24c11.028 0 20 8.972 20 20v48zM76 230h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zM76 310h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zM76 390h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zm80-80h40v40h-40z"></path></svg>
+    <?=$block->escapeHtml(__('Enjoy our 4 interest free bi-weekly installments 0% interest free installments'))?>
+</p>
+<p class="rely-popup-content-notice">Pay your installments by due to avoid late fee</p>

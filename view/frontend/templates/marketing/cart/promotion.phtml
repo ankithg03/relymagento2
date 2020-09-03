@@ -1,0 +1,29 @@
+<?php
+/**
+ *
+ * @description Magento Module for Rely Payment
+ * @author   Codilar Team Player <ankith@codilar.com>
+ * @license  Open Source
+ * @link     https://www.codilar.com
+ * @copyright Copyright © 2020 Codilar Technologies Pvt. Ltd.. All rights reserved
+ *
+ */
+?>
+<?php
+/** @var $block Promotion */
+
+use Rely\Payment\Block\Marketing\Cart\Promotion;
+
+?>
+<?php if ($block->isPromotionTaglineEnabled()):?>
+    <div class="strip-widget" data-modal-target="#rely-popup-modal">
+        <div class="strip-widget-content">
+                <?php if ($block->getRelyPaymentType()==='rely_instalment'):?>
+                    <?= $block->getChildHtml('installment_display_widget')?>
+                <?php else:?>
+                    <?= $block->getChildHtml('pay_later_display_widget')?>
+                <?php endif;?>
+        </div>
+    </div>
+<?php endif; ?>
+

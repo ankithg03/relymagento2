@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @description Magento Module for Rely Payment
+ * @author   Codilar Team Player <ankith@codilar.com>
+ * @license  Open Source
+ * @link     https://www.codilar.com
+ * @copyright Copyright © 2020 Codilar Technologies Pvt. Ltd.. All rights reserved
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_order_place_before">
+        <observer name="rely_before_order_placed" instance="Rely\Payment\Observer\BeforeCheckout" />
+    </event>
+    <event name="sales_order_save_after">
+        <observer name="rely_order_status_change" instance="Rely\Payment\Observer\CheckOrderStatus" />
+    </event>
+</config>
+
