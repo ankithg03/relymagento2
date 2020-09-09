@@ -23,7 +23,7 @@
       }
     ],
     "require": {
-        "magento/framework": "102.0.*",
+        "magento/framework": ">=102.0.*",
         "nvanheuverzwijn/monolog-logdna": "^2.1"
     },
     "autoload": {

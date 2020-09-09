@@ -21,7 +21,7 @@ use Rely\Payment\Model\Config\ModuleConfigurations;
  * @copyright Copyright © 2020 Codilar Technologies Pvt. Ltd.. All rights reserved
  *
  */
-final class ConfigProvider implements ConfigProviderInterface /**phpcs:ignore*/
+class ConfigProvider implements ConfigProviderInterface /**phpcs:ignore*/
 {
     const CODE = 'rely_payment';
     /**
